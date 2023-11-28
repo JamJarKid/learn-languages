@@ -1,9 +1,8 @@
 #include <iostream>
 
 int main() {
-
-    int firstnum{ };
-    int secondnum{ };
+    int firstnum { };
+    int secondnum { };
 
     std::cout << "Enter your first number: ";
     std::cin >> firstnum;
@@ -16,3 +15,4 @@ int main() {
 
     return 0;
 }
+

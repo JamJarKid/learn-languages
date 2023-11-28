@@ -1,0 +1,10 @@
+-std=c++23
+-fdiagnostics-color=always
+-g
+-pedantic-errors
+-Wall
+-Weffc++
+-Wextra
+-Wsign-conversion
+-Werror
+
