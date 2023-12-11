@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
 
-int main() {
-
+int main()
+{
     std::string name{ };
     int age{ };
 
