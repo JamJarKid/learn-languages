@@ -11,6 +11,13 @@ function clearGrid(container) {
   container.innerHTML = '';
 }
 
+function getRandomRGB() {
+  let r = Math.floor(Math.random() * 256);
+  let g = Math.floor(Math.random() * 256);
+  let b = Math.floor(Math.random() * 256);
+  return `rgb(${r}, ${g}, ${b})`;
+}
+
 function generate(size, container) {
   for (i = 0; i < size; ++i) {
     let rowDiv = document.createElement("div");
@@ -18,13 +25,14 @@ function generate(size, container) {
     container.appendChild(rowDiv);
     for (j = 0; j < size; ++j) {
       let columnDiv = document.createElement("div");
-      columnDiv.className = "column";
+      columnDiv.classList.add('column')
       columnDiv.addEventListener("mouseover", (event) => {
-        event.target.setAttribute("style", "background-color:red;");
+        RGB = getRandomRGB();
+        event.target.setAttribute("style", `background-color:${RGB};`);
       });
-      columnDiv.addEventListener("mouseout", (event) => {
-        event.target.setAttribute("style", "background-color:white;");
-      });
+      //columnDiv.addEventListener("mouseout", (event) => {
+      //  event.target.setAttribute("style", "background-color:white;");
+      //});
       rowDiv.appendChild(columnDiv);
     }
   }
