@@ -18,6 +18,15 @@ function getRandomRGB() {
   return `rgb(${r}, ${g}, ${b})`;
 }
 
+function increaseOpacity(element) {
+  var opacity = window.getComputedStyle(element).getPropertyValue("opacity")
+  if (+opacity >= 1) {
+    return opacity
+  } else {
+    return +opacity + 0.1
+  }
+}
+
 function generate(size, container) {
   for (i = 0; i < size; ++i) {
     let rowDiv = document.createElement("div");
@@ -26,9 +35,12 @@ function generate(size, container) {
     for (j = 0; j < size; ++j) {
       let columnDiv = document.createElement("div");
       columnDiv.classList.add('column')
+      columnDiv.setAttribute("style", "opacity:0;");
+
       columnDiv.addEventListener("mouseover", (event) => {
-        RGB = getRandomRGB();
-        event.target.setAttribute("style", `background-color:${RGB};`);
+        const opacity = increaseOpacity(event.target);
+        const RGB = getRandomRGB();
+        event.target.setAttribute("style", `background-color:${RGB}; opacity:${opacity};`);
       });
       //columnDiv.addEventListener("mouseout", (event) => {
       //  event.target.setAttribute("style", "background-color:white;");
