@@ -1,7 +1,15 @@
 const container = document.querySelector(".container");
-//document.addEventListener("DOMContentLoaded", (container) => {
-//  generate(16, container);
-//});
+const button = document.querySelector("button");
+
+button.addEventListener("click", () => {
+    const gridSize = prompt("Enter a value between 0 and 100 to generate a grid","1");
+    clearGrid(container);
+    generate(gridSize, container);
+});
+
+function clearGrid(container) {
+  container.innerHTML = '';
+}
 
 function generate(size, container) {
   for (i = 0; i < size; ++i) {
