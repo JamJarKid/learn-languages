@@ -3,7 +3,6 @@ const palindromes = function (word) {
     const regex = /[A-Za-z]/g;
     const wordArray = word.match(regex)
     return wordArray.reverse() === wordArray
-    
 };
 
 // Do not edit below this line
