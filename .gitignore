@@ -1,2 +1,3 @@
-*.DS*
-*.dYSM
+*.vscode
+*.dSYM
+*.dSYM.*
