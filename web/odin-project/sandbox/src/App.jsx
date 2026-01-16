@@ -1,34 +1,37 @@
 import React, { useState } from "react";
 import "./App.css";
+import Counter from "./Count.jsx"
 
 const COLORS = ["pink", "green", "blue", "yellow", "purple"];
 
 function App() {
-  const [backgroundColor, setBackgroundColor] = useState(COLORS[0]);
+    const [backgroundColor, setBackgroundColor] = useState(COLORS[0]);
+    const [count, setCount] = useState(0)
+    const onButtonClick = (color) => () => {
+        setBackgroundColor(color);
+        setCount(count + 1)
+    };
 
-  const onButtonClick = (color) => () => {
-    setBackgroundColor(color);
-  };
-
-  return (
-    <div
-      className="App"
-      style={{
-        backgroundColor,
-      }}
-    >
-      {COLORS.map((color) => (
-        <button
-          type="button"
-          key={color}
-          onClick={onButtonClick(color)}
-          className={backgroundColor === color ? "selected" : ""}
+    return (
+        <div
+            className="App"
+            style={{
+                backgroundColor,
+            }}
         >
-          {color}
-        </button>
-      ))}
-    </div>
-  );
+            {COLORS.map((color) => (
+                <button
+                    type="button"
+                    key={color}
+                    onClick={onButtonClick(color)}
+                    className={backgroundColor === color ? "selected" : ""}
+                >
+                    {color}
+                </button>
+            ))}
+            <Counter count={count} />
+        </div>
+    );
 }
 
 export default App;
